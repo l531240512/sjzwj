@@ -1,0 +1,53 @@
+{
+	"pages": [ 
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+				// "navigationBarBackgroundColor": "#eee"
+			}
+		},
+        {
+            "path": "pages/goods/shop",
+            "style": {
+                "navigationBarTitleText": "店铺"
+            }
+
+        },
+        {
+            "path": "pages/new/index",
+            "style": {
+                // "navigationBarTitleText": "店铺"
+            }
+
+        }
+	],
+	"globalStyle": {
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "uni-app",
+			"navigationBarBackgroundColor": "#F8F8F8",
+			"backgroundColor": "#F8F8F8",
+			"navigationStyle":"custom"
+	},
+	"tabBar": {
+	    "color": "#2f2f2f",
+	    "selectedColor": "#216d8d",
+	    "backgroundColor": "#ffffff",
+	    "borderStyle": "white",
+	    "list": [
+	      {
+	        "pagePath": "pages/index/index",
+	        "text": "首页",
+			"iconPath": "static/sy.png",
+	        "selectedIconPath": "static/sy1.png"
+	      },
+		  {
+		    "pagePath": "pages/goods/shop",
+		    "text": "店铺",
+			"iconPath": "static/sp.png",
+		    "selectedIconPath": "static/sp1.png"
+		  }
+	    ],
+		"position":"bottom"
+	}
+}
