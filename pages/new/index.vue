@@ -1,7 +1,7 @@
 <template>
 	<view class="warp">
 		<bar :nav="setNav"></bar>
-		<view style="height: 200upx;">
+		<view style="height: 100upx;">
 			<view style="margin-left: 50upx; margin-top: 50upx; font-size:32upx; font-weight:bold; letter-spacing:2upx;">
 				<text class="flex flex-direction">内蒙古赤峰市敖汉旗四家子镇</text>
 			</view>
@@ -9,7 +9,25 @@
 				<text class="flex flex-direction">时间：2022-1-1</text>
 			</view>
 		</view>
-		<view style="margin-left: 50upx; margin-right: 50upx;">
+		<view class="uni-padding-wrap uni-common-mt">
+			<view>
+				<video id="myVideo" src="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20200317.mp4"
+					@error="videoErrorCallback" :danmu-list="danmuList" enable-danmu danmu-btn controls></video>
+			</view>
+			<!-- #ifndef MP-ALIPAY -->
+			<view class="uni-list uni-common-mt">
+				<view class="uni-list-cell">
+					<view>
+						<view class="uni-label">弹幕内容</view>
+					</view>
+					<view class="uni-list-cell-db">
+						<input v-model="danmuValue" class="uni-input" type="text" @confirm="sendDanmu" placeholder="在此处输入弹幕内容" />
+					</view>
+				</view>
+			</view>
+			<!-- #endif -->
+		</view>
+		<view style="margin-left: 50upx; margin-right: 50upx;margin-top: 50upx;">
 			<view>
 				<p style="text-indent: 60upx;"> 四家子镇，隶属于内蒙古赤峰市敖汉旗，地处敖汉旗南部，东南、南与辽宁省朝阳市朝阳县毗邻，西南、西、西北与辽宁省朝阳市建平县相连，北与新惠镇为邻，东北与金厂沟梁镇接壤。  四家子镇行政区域面积425.74平方千米。2018年末，四家子镇户籍人口45042人。 </p> 
 			</view>
@@ -63,27 +81,59 @@
 					'isdisPlayNavTitle':true, //是否显示返回按钮，由于导航栏是共用的，把所有的东西封装好，
 					// 然后有些页面不需要的东西通过条件控制进行显示与隐藏
 					'navTitle':'五金' //导航标题
-				}
+				},
+				src: '',
+				danmuList: [{
+						text: '第 1s 出现的弹幕',
+						color: '#ff0000',
+						time: 1
+					},
+					{
+						text: '第 3s 出现的弹幕',
+						color: '#ff00ff',
+						time: 3
+					}
+				],
+				danmuValue: ''
 			}
 		},
 		onLoad() {
 
 		},
 		onShareAppMessage() {
-			uni.share({
-				provider: "weixin",
-				scene: "WXSceneSession",
-				type: 1,
-				summary: "赶紧跟我一起来体验！",
-				success: function (res) {
-					console.log("success:" + JSON.stringify(res));
-				},
-				fail: function (err) {
-					console.log("fail:" + JSON.stringify(err));
-				}
-			});
+			return {
+			  title: '自定义分享标题',
+			  path: 'pages/new/index'
+			}
+		},
+		onReady: function(res) {
+		    // #ifndef MP-ALIPAY
+		    this.videoContext = uni.createVideoContext('myVideo')
+		    // #endif
 		},
 		methods: {
+			sendDanmu: function() {
+			    this.videoContext.sendDanmu({
+			        text: this.danmuValue,
+			        color: this.getRandomColor()
+			    });
+			    this.danmuValue = '';
+			},
+			videoErrorCallback: function(e) {
+			    uni.showModal({
+			        content: e.target.errMsg,
+			        showCancel: false
+			    })
+			},
+			getRandomColor: function() {
+			    const rgb = []
+			    for (let i = 0; i < 3; ++i) {
+			        let color = Math.floor(Math.random() * 256).toString(16)
+			        color = color.length == 1 ? '0' + color : color
+			        rgb.push(color)
+			    }
+			    return '#' + rgb.join('')
+			},
 			change(e) {
 				let {
 					index
@@ -145,5 +195,9 @@
 		font-size: 21upx; 
 		margin-top: 15upx; 
 		/* text-indent: 60upx; */
+	}
+	
+	view video {
+		width: 100%;
 	}
 </style>

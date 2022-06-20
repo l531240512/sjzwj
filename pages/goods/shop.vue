@@ -55,12 +55,12 @@
                 <!-- <view class="content-right" v-if="goodsList"> -->
                 <view v-if="categoryId==item.category_id||categoryId==null" class="tui-flex tui-border tui-list" style=""
                     v-for="(item,key) in goodsList" :key="key">
-                    <view class="">
+                    <view class=""  @tap="tapDetail(item,key,item.selected);">
                         <image style="height:130upx;width: 130upx;" :src="item.image" mode="aspectFill" />
                     </view>
                     <!-- @tap="tapDetail(item,key,item.selected);" -->
 
-                    <view class="tui-flex tui-column" style="box-sizing: border-box;padding-left:100upx;height: 135upx;width: 400upx;">
+                    <view @tap="tapDetail(item,key,item.selected);" class="tui-flex tui-column" style="box-sizing: border-box;padding-left:100upx;height: 135upx;width: 400upx;">
                         <view class="tui-title">{{item.title}}</view>
                         <view style="display: flex;justify-content: space-between;">
                             <view class="">
@@ -204,10 +204,22 @@
                         name: '水管',
                         id: '4'
                     },
-                    // {
-                    //     name: '粗茶',
-                    //     id: '5',
-                    // }
+                    {
+                    	name:'家具',
+                    	id: '5'
+                    },
+                    {
+                    	name:'服饰',
+                    	id: '6'
+                    },
+                    {
+                    	name:'化妆品',
+                    	id: '7'
+                    },
+                    {
+                    	name:'肉禽',
+                    	id: '8'
+                    }
                 ],
             };
         },
@@ -245,22 +257,21 @@
             this.contentHeight = (winHeight - uni.upx2px(100));
             this.winHeight = winHeight;
             // this.$store.commit('shop',{shop_id:1,shop_name:"新店铺"})
-
-
         },
+		onShow() {
+			let idx = uni.getStorageSync('idx')
+			if(idx){
+				// 首页跳转场景
+				this.categoryActive = idx
+				uni.removeStorageSync('idx');
+			}
+		},
 		onShareAppMessage() {
-			uni.share({
-				provider: "weixin",
-				scene: "WXSceneSession",
-				type: 1,
-				summary: "赶紧跟我一起来体验！",
-				success: function (res) {
-					console.log("success:" + JSON.stringify(res));
-				},
-				fail: function (err) {
-					console.log("fail:" + JSON.stringify(err));
-				}
-			});
+			let categoryActive = this.categoryActive
+			return {
+			  title: '自定义分享标题',
+			  path: `pages/goods/shop?idx=${categoryActive}`
+			}
 		},
         onLoad(e) {
             this.$store.commit('init')
@@ -308,10 +319,20 @@
 			    url: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/1.json', //仅为示例，并非真实接口地址。
 			    success: (res) => {
 					this.goodsList = res.data
+					uni.setStorageSync('productList',this.goodsList)
 			    },
                 fail: (err) => { //失败操作
                 }
 			});
+			
+			let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+			let curParam = routes[routes.length - 1].options; //获取路由参数
+			console.log(curParam.idx)
+			if(curParam && curParam.idx){
+				// 分享场景
+				this.categoryActive = curParam.idx
+			}
+			
         },
         methods: {
             versionTap(item, index) {
@@ -393,7 +414,17 @@
                 this.$set(this.goodsList, index, this.goodsList[index])
 
             },
-
+			tapDetail(item,key,selected) {
+				let url = "/pages/goods/detail?id="+item.id;
+				uni.navigateTo({
+				    url: url,
+				    success: res => {
+				
+				    },
+				    fail: () => {},
+				    complete: () => {}
+				});
+			},
             categoryClickMain(idx, item) {
                 this.categoryId = item.id;
                 this.categoryActive = idx;

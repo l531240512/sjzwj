@@ -12,14 +12,30 @@
             "style": {
                 "navigationBarTitleText": "店铺"
             }
-
         },
+		{
+		    "path": "pages/goods/detail",
+		    "style": {
+		        // "navigationBarTitleText": "详情"
+		    }
+		},
         {
             "path": "pages/new/index",
             "style": {
                 // "navigationBarTitleText": "店铺"
             }
-
+        },
+        {
+            "path": "pages/tool/map",
+            "style": {
+                // "navigationBarTitleText": "店铺"
+            }
+        },
+        {
+            "path": "pages/mine/index",
+            "style": {
+                // "navigationBarTitleText": ""
+            }
         }
 	],
 	"globalStyle": {
@@ -46,6 +62,12 @@
 		    "text": "店铺",
 			"iconPath": "static/sp.png",
 		    "selectedIconPath": "static/sp1.png"
+		  },
+		  {
+		    "pagePath": "pages/mine/index",
+		    "text": "我的",
+			"iconPath": "static/m.png",
+		    "selectedIconPath": "static/m1.png"
 		  }
 	    ],
 		"position":"bottom"

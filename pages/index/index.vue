@@ -7,12 +7,12 @@
 					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
 						<swiper-item>
 							<view class="swiper-item">
-								<image src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/sjz.png"></image>
+								<image src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/banner/b1.jpg"></image>
 							</view>
 						</swiper-item>
 						<swiper-item>
 							<view class="swiper-item">
-								<image src="/static/1.jpeg"></image>
+								<image src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/banner/b2.jpg"></image>
 							</view>
 						</swiper-item>
 					</swiper>
@@ -27,50 +27,37 @@
 				<button type="primary" class="btn2" size="mini" plain="true" @tap="CallPhone('15047690961')">联系电话：150 4769 0961</button>
 			</view>
 		</view>
-		<view>
-			<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;">
-			    <uni-grid-item>
-					<view>
-						<view @tap="goPage('1')">
-							<image src="/static/nj.svg" height="20upx" width="20upx"></image>
+		<view style="height: 50upx;"></view>
+		<view style="display: flex; justify-content:center; align-items:center; flex-direction: column;">
+			<view style="width: 95%; overflow：hidden">
+				<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row; border-top-left-radius:30upx; border-top-right-radius:30upx">
+					<uni-grid-item v-for="(item, index) in menuList1" :index="index" :key="index" >
+						<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
+							<image :src="item.img" ></image>
 						</view>
 						<view style="align-content: center;">
-							<text class="text">农机具</text>
+							<text class="text">{{item.name}}</text>
 						</view>
-					</view>
-			    </uni-grid-item>
-			    <uni-grid-item>
-					<view @tap="goPage('1')">
-						<image src="/static/gj.svg" height="20upx" width="20upx"></image>
-					</view>
-					<view style="align-content: center;">
-						<text class="text">工具包</text>
-					</view>
-			    </uni-grid-item>
-			</uni-grid>
-		</view>
-		<view>
-			<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;">
-			    <uni-grid-item>
-					<view @tap="goPage('1')">
-						<image src="/static/cz.svg" height="20upx" width="20upx"></image>
-					</view>
-					<view style="text-align: center;">
-						<text class="text">插排</text>
-					</view>
-			    </uni-grid-item>
-				<uni-grid-item>
-					<view @tap="goPage('1')">
-						<image src="/static/sg.svg" height="20upx" width="20upx"></image>
-					</view>
-					<view style="align-content: center;">
-						<text class="text">水管</text>
-					</view>
-				</uni-grid-item>
-			</uni-grid>
+					</uni-grid-item>
+				</uni-grid>
+			</view>
+			<view style="width: 95%; overflow：hidden">
+				<!-- uni-grid 的颜色溢出，如果给父级view设置圆角会失效，所以给uni-grid父级view添加overflow：hidden，uni-grid 的颜色不会溢出，uni-grid的圆角可以正常显示 -->
+				<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;border-bottom-left-radius:30upx; border-bottom-right-radius:30upx">
+					<uni-grid-item v-for="(item, index) in menuList2" :index="index" :key="index" >
+						<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
+							<image :src="item.img" ></image>
+						</view>
+						<view style="align-content: center; margin-bottom : 20upx;">
+							<text class="text" style="align-content: center;">{{item.name}}</text>
+						</view>
+					</uni-grid-item>
+				</uni-grid>
+			</view>
 		</view>
 		<view style="height: 50upx;"></view>
-		<view @tap="goPage('2')" style="background-color: #fff; display: flex; flex-direction: row; align-items:center; height: 220upx; width: 750upx;">
+		<view style="background-color: #fff; display: flex; flex-direction: column; align-items:center; width: 750upx;">
+		<view @tap="goPage('new')" style="display: flex; flex-direction: row; align-items:center; height: 220upx; width: 750upx;">
 			<view style="flex-grow: 2;">
 				<view style="margin-left: 50upx;">
 					<text class="flex flex-direction">内蒙古赤峰市敖汉旗四家子镇</text>
@@ -82,6 +69,21 @@
 			<view style="flex-grow: 1;">
 				<image style="height: 160upx; width: 200upx;border-radius:10upx" src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/sjz1.png" data-src="/static/1.svg"></image>
 			</view>
+		</view>
+		<!-- <view style="height: 50upx;"></view> -->
+		<view @tap="goPage('new')" style="display: flex; flex-direction: row; align-items:center; height: 220upx; width: 750upx;">
+			<view style="flex-grow: 2;">
+				<view style="margin-left: 50upx;">
+					<text class="flex flex-direction">内蒙古赤峰市敖汉旗四家子镇</text>
+				</view>
+				<view style="margin-left: 50upx; margin-top: 20upx; color:darkgrey">
+					<text class="flex flex-direction">时间：2022-1-1</text>
+				</view>
+			</view>
+			<view style="flex-grow: 1;">
+				<image style="height: 160upx; width: 200upx;border-radius:10upx" src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/sjz1.png" data-src="/static/1.svg"></image>
+			</view>
+		</view>
 		</view>
 		<view style="height: 50upx;"></view>
 	</view>
@@ -102,11 +104,12 @@
 				duration: 500,
 				// 自定义导航栏对象
 				setNav:{
-					'bg':'linear-gradient(to right, #74ebd5, #acb6e5)',  //背景色
+					'bg':'linear-gradient(to right, #FFFFFF, #FFFFFF)',  //背景色
+					// 'bg':'linear-gradient(to right, #74ebd5, #acb6e5)',  //背景色
 					'color':'white',  //字体颜色
 					'isdisPlayNavTitle':false, //是否显示返回按钮，由于导航栏是共用的，把所有的东西封装好，
 					// 然后有些页面不需要的东西通过条件控制进行显示与隐藏
-					'navTitle':'五金' //导航标题
+					'navTitle':'五金三十年老店' //导航标题
 				},
 				renderImage: false,
 				goodsTabData: [{
@@ -115,24 +118,68 @@
 				{
 					tag:"tag2",
 				}],
+				menuList1:[
+					{
+						name:'农机具',
+						id: '1',
+						idx: 0,
+						img:'/static/nj.svg'
+					},
+					{
+						name:'工具包',
+						id: '2',
+						idx: 1,
+						img:'/static/gj.svg'
+					},
+					{
+						name:'插排',
+						id: '3',
+						idx: 2,
+						img:'/static/cz.svg'
+					},
+					{
+						name:'水管',
+						id: '4',
+						idx: 3,
+						img:'/static/sg.svg'
+					}
+				],
+				menuList2:[
+					{
+						name:'家具',
+						id: '5',
+						idx: 4,
+						img:'/static/jj.svg'
+					},
+					{
+						name:'服饰',
+						id: '6',
+						idx: 5,
+						img:'/static/fs.svg'
+					},
+					{
+						name:'化妆品',
+						id: '7',
+						idx: 6,
+						img:'/static/hzp.svg'
+					},
+					{
+						name:'肉禽',
+						id: '8',
+						idx: 7,
+						img:'/static/rq.svg'
+					}
+				],
 				imageURL: '/static/11.png'
 			}
 		},
 		onLoad() {
 		},
 		onShareAppMessage() {
-			uni.share({
-				provider: "weixin",
-				scene: "WXSceneSession",
-				type: 1,
-				summary: "赶紧跟我一起来体验！",
-				success: function (res) {
-					console.log("success:" + JSON.stringify(res));
-				},
-				fail: function (err) {
-					console.log("fail:" + JSON.stringify(err));
-				}
-			});
+			return {
+			  title: '自定义分享标题',
+			  path: 'pages/index/index'
+			}
 		},
 		methods: {
 			change(e) {
@@ -147,7 +194,7 @@
 				})
 			},
 			goPage(e) {
-				if(e === '2'){
+				if(e === 'new'){
 					var url = "/pages/new/index";
 					uni.navigateTo({
 					    url: url,
@@ -159,7 +206,21 @@
 						},
 					    complete: () => {}
 					});
-				}else{
+				}else if(e === '3'){
+					var url = "/pages/new/index";
+					uni.navigateTo({
+					    url: url,
+					    success: res => {
+							console.log(res);
+					    },
+					    fail: (res) => {
+							console.log(res);
+						},
+					    complete: () => {}
+					});
+				}
+				else{
+					uni.setStorageSync('idx', e);
 					var url = "/pages/goods/shop";
 					uni.switchTab({
 						url:url,
@@ -200,14 +261,6 @@
 		justify-content: center;
 	}
 
-	.logo {
-		height: 350rpx;
-		width: 600rpx;
-		margin-top: 80rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
 	.button {
 		height: 200rpx;
 		width: 200rpx;
@@ -292,8 +345,8 @@
 	}
 	
 	uni-grid-item image{
-		width: 200upx;
-		height: 200upx;
+		width: 70upx;
+		height: 70upx;
 		margin: auto;
 	}
 	

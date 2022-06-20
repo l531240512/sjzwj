@@ -33,10 +33,23 @@
 		methods: {
 			 // 回到上一页
 			 back: function(){
-				 uni.navigateBack({
-				 	delta:1
-				 })
-			 }
+				 if(this.nav.isShare){
+					uni.switchTab({
+						url:'/pages/index/index',
+						success: res => {
+							// console.log(res);
+						},
+						fail: (res) => {
+							console.log(res)
+						},
+						complete: () => {}
+					})
+				 }else{
+					 uni.navigateBack({
+						delta:1
+					 })
+				 }
+			 },
 		}
 	}
 </script>
