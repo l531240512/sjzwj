@@ -148,42 +148,6 @@
 					// 	stock: 12,
 					// 	category_id: 1,
 					// 	number: 1
-					// },
-					// {
-					// 	id: 2,
-					// 	image: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/3.jpg',
-					// 	title: '揉草机',
-					// 	price: 1750,
-					// 	stock: 12,
-					// 	category_id: 1,
-					// 	number: 1
-					// },
-					// {
-					// 	id: 3,
-					// 	image: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/4.jpg',
-					// 	title: '加面机',
-					// 	price: 1050,
-					// 	stock: 12,
-					// 	category_id: 1,
-					// 	number: 1
-					// },
-					// {
-					// 	id: 4,
-					// 	image: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/5.jpg',
-					// 	title: '打玉米5',
-					// 	price: 580,
-					// 	stock: 12,
-					// 	category_id: 1,
-					// 	number: 1
-					// },
-					// {
-					// 	id: 5,
-					// 	image: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/6.jpg',
-					// 	title: '侧草带加面机器',
-					// 	price: 1500,
-					// 	stock: 12,
-					// 	category_id: 1,
-					// 	number: 1
 					// }
 				], //商品列表\
                 totalCart: 0, //购物车商品总数量
@@ -260,9 +224,11 @@
         },
 		onShow() {
 			let idx = uni.getStorageSync('idx')
-			if(idx){
+			if(idx >= 0){
 				// 首页跳转场景
 				this.categoryActive = idx
+				let item = {id:this.categoryActive == null ? null : (this.categoryActive +1)}
+				this.categoryClickMain(this.categoryActive,item)
 				uni.removeStorageSync('idx');
 			}
 		},
@@ -282,39 +248,6 @@
             console.log(e)
             // 请求服务器
             var self = this;
-			// setTimeout(function () {
-			// }, 3000);
-
-            // var host=this.$config.host+"shop/"+id;//主服务器地址
-
-            // Request("goodsShop", {
-            //     data: {
-            //         id: id
-            //     }
-            // }).then((res) => {
-            //     var data = res.data.data
-            //     var goodsList = data.goodsList;
-            //     var shop = {}
-            //     shop.shop_id = data.shop_id;
-            //     shop.shop_name = data.shop_name;
-            //     self.$store.commit('shop', shop)
-            //     console.log(self.$store.getters.shop)
-            //     console.log(res.data.data)
-            //     // var shops=res.data.data ||{};
-            //     for (let i = 0; i < goodsList.length; i++) {
-            //         // 判断图片地址是站内或站外，替换链接地址http
-            //         let src = '';
-            //         if (goodsList[i].image.indexOf("http") < 0) {
-            //             src = this.$config.server.image;
-            //         }
-            //         goodsList[i].image = src + goodsList[i].image;
-            //     }
-            //     self.goodsList = goodsList;
-            //     var category = res.data.data.category;
-
-            //     uni.hideLoading();
-            //     self.category = category;
-            // })
 			uni.request({
 			    url: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/1.json', //仅为示例，并非真实接口地址。
 			    success: (res) => {
@@ -327,7 +260,6 @@
 			
 			let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
 			let curParam = routes[routes.length - 1].options; //获取路由参数
-			console.log(curParam.idx)
 			if(curParam && curParam.idx){
 				// 分享场景
 				this.categoryActive = curParam.idx

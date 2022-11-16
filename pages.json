@@ -36,6 +36,11 @@
             "style": {
                 // "navigationBarTitleText": ""
             }
+        },
+        {
+            "path": "pages/error/index",
+            "style": {
+            }
         }
 	],
 	"globalStyle": {
@@ -52,18 +57,21 @@
 	    "borderStyle": "white",
 	    "list": [
 	      {
+			"current": 0,
 	        "pagePath": "pages/index/index",
 	        "text": "首页",
 			"iconPath": "static/sy.png",
 	        "selectedIconPath": "static/sy1.png"
 	      },
 		  {
+			"current": 1,
 		    "pagePath": "pages/goods/shop",
 		    "text": "店铺",
 			"iconPath": "static/sp.png",
 		    "selectedIconPath": "static/sp1.png"
 		  },
 		  {
+			"current": 2,
 		    "pagePath": "pages/mine/index",
 		    "text": "我的",
 			"iconPath": "static/m.png",

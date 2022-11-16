@@ -56,6 +56,7 @@
     /* @import "./common/css/iconfont.css"; */
     @import "./common/css/tui.css";
     @import "./common/yc.css";
+	@import "@/static/icon/iconfont.css";
 
     .color-font {
         color: #F7F7F7;

@@ -9,13 +9,13 @@
 				<text class="flex flex-direction">时间：2022-1-1</text>
 			</view>
 		</view>
-		<view class="uni-padding-wrap uni-common-mt">
+		<!-- <view class="uni-padding-wrap uni-common-mt">
 			<view>
 				<video id="myVideo" src="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20200317.mp4"
 					@error="videoErrorCallback" :danmu-list="danmuList" enable-danmu danmu-btn controls></video>
-			</view>
+			</view> -->
 			<!-- #ifndef MP-ALIPAY -->
-			<view class="uni-list uni-common-mt">
+			<!-- <view class="uni-list uni-common-mt">
 				<view class="uni-list-cell">
 					<view>
 						<view class="uni-label">弹幕内容</view>
@@ -24,9 +24,9 @@
 						<input v-model="danmuValue" class="uni-input" type="text" @confirm="sendDanmu" placeholder="在此处输入弹幕内容" />
 					</view>
 				</view>
-			</view>
+			</view> -->
 			<!-- #endif -->
-		</view>
+		<!-- </view> -->
 		<view style="margin-left: 50upx; margin-right: 50upx;margin-top: 50upx;">
 			<view>
 				<p style="text-indent: 60upx;"> 四家子镇，隶属于内蒙古赤峰市敖汉旗，地处敖汉旗南部，东南、南与辽宁省朝阳市朝阳县毗邻，西南、西、西北与辽宁省朝阳市建平县相连，北与新惠镇为邻，东北与金厂沟梁镇接壤。  四家子镇行政区域面积425.74平方千米。2018年末，四家子镇户籍人口45042人。 </p> 

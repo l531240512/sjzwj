@@ -29,31 +29,33 @@
 		</view>
 		<view style="height: 50upx;"></view>
 		<view style="display: flex; justify-content:center; align-items:center; flex-direction: column;">
-			<view style="width: 95%; overflow：hidden">
-				<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row; border-top-left-radius:30upx; border-top-right-radius:30upx">
-					<uni-grid-item v-for="(item, index) in menuList1" :index="index" :key="index" >
-						<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
-							<image :src="item.img" ></image>
-						</view>
-						<view style="align-content: center;">
-							<text class="text">{{item.name}}</text>
-						</view>
-					</uni-grid-item>
-				</uni-grid>
-			</view>
-			<view style="width: 95%; overflow：hidden">
-				<!-- uni-grid 的颜色溢出，如果给父级view设置圆角会失效，所以给uni-grid父级view添加overflow：hidden，uni-grid 的颜色不会溢出，uni-grid的圆角可以正常显示 -->
-				<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;border-bottom-left-radius:30upx; border-bottom-right-radius:30upx">
-					<uni-grid-item v-for="(item, index) in menuList2" :index="index" :key="index" >
-						<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
-							<image :src="item.img" ></image>
-						</view>
-						<view style="align-content: center; margin-bottom : 20upx;">
-							<text class="text" style="align-content: center;">{{item.name}}</text>
-						</view>
-					</uni-grid-item>
-				</uni-grid>
-			</view>
+			<!-- uni-grid 的颜色溢出，如果给父级view设置圆角会失效，所以给uni-grid父级view添加overflow：hidden，uni-grid 的颜色不会溢出，uni-grid的圆角可以正常显示 -->
+			<uni-card :is-shadow="true" is-full=true style="overflow: hidden; width: 95%; border-radius:30upx;">
+				<view>
+					<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;">
+						<uni-grid-item v-for="(item, index) in menuList1" :index="index" :key="index" >
+							<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
+								<image :src="item.img" ></image>
+							</view>
+							<view style="align-content: center;">
+								<text class="text">{{item.name}}</text>
+							</view>
+						</uni-grid-item>
+					</uni-grid>
+				</view>
+				<view>
+					<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;">
+						<uni-grid-item v-for="(item, index) in menuList2" :index="index" :key="index" >
+							<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
+								<image :src="item.img" ></image>
+							</view>
+							<view style="align-content: center; margin-bottom : 20upx;">
+								<text class="text" style="align-content: center;">{{item.name}}</text>
+							</view>
+						</uni-grid-item>
+					</uni-grid>
+				</view>
+			</uni-card>
 		</view>
 		<view style="height: 50upx;"></view>
 		<view style="background-color: #fff; display: flex; flex-direction: column; align-items:center; width: 750upx;">
@@ -91,9 +93,10 @@
 
 <script>
 	import bar from "@/components/template/nav/bar.vue"
+	import uniCard from "@/components/uni-card/uni-card.vue"
 	export default {
 		components:{
-				bar
+				bar, uniCard
 		},
 		data() {
 			return {
@@ -174,6 +177,11 @@
 			}
 		},
 		onLoad() {
+			// tabBar 角标数字
+			// uni.setTabBarBadge({ //显示数字
+			//   index: 1,//tabbar下标
+			//   text: '1'//数字
+			// })
 		},
 		onShareAppMessage() {
 			return {
@@ -245,6 +253,15 @@
 			},
 			/*拨打电话*/
 			CallPhone(e){
+				// 从聊天记录中选择文件
+				// wx.chooseMessageFile({
+				//   count: 10,
+				//   type: 'all',
+				//   success (res) {
+				//     // tempFilePath可以作为 img 标签的 src 属性显示图片
+				//     const tempFilePaths = res.tempFiles
+				//   }
+				// })
 			    uni.makePhoneCall({
 					phoneNumber: e
 				});
