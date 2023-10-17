@@ -1,5 +1,6 @@
 <script>
 	import Vue from 'vue'
+	import routingIntercept from '@/request/permission.js'
     export default {
         computed: {
             // this.$store.getters.user;    
@@ -19,6 +20,7 @@
             })()
         },
         onLaunch: function() {
+		   routingIntercept()
            uni.getSystemInfo({
              success:function(e){
               Vue.prototype.statusBar = e.statusBarHeight

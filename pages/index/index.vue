@@ -35,7 +35,7 @@
 					<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;">
 						<uni-grid-item v-for="(item, index) in menuList1" :index="index" :key="index" >
 							<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
-								<image :src="item.img" ></image>
+								<image style="height: 85upx; width: 85upx;" :src="item.img" ></image>
 							</view>
 							<view style="align-content: center;">
 								<text class="text">{{item.name}}</text>
@@ -47,7 +47,7 @@
 					<uni-grid :column="8" style="background-color: #fff; display: flex; flex-direction: row;">
 						<uni-grid-item v-for="(item, index) in menuList2" :index="index" :key="index" >
 							<view style="margin-top: 20upx;" @tap="goPage(item.idx)">
-								<image :src="item.img" ></image>
+								<image style="height: 85upx; width: 85upx;" :src="item.img" ></image>
 							</view>
 							<view style="align-content: center; margin-bottom : 20upx;">
 								<text class="text" style="align-content: center;">{{item.name}}</text>

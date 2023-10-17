@@ -40,7 +40,7 @@
 			<view class="liebiao">
 				<cell v-for="(liebiao,key) in lbIcon" :key="key">
 				  <view class="uniCellItem">
-					  <uni-icons :type="liebiao.photoSrc" :size="30" @click="toUrl(liebiao.toUrl)" />
+					  <uni-icons :type="liebiao.photoSrc" :size="30" @click="toUrl(liebiao)" />
 					  <text class="text">{{liebiao.text}}</text>
 				  </view>
 				</cell>
@@ -137,9 +137,15 @@
 				};
 				this.icon = data.icons
 			},
-			toUrl(url) {
+			toUrl(item) {
+				if(item.text == '客服电话'){
+					uni.makePhoneCall({
+						phoneNumber: '15047690961'
+					});
+					return
+				}
 				uni.navigateTo({
-				    url: url,
+				    url: item.toUrl,
 				    success: res => {
 				
 				    },
@@ -163,7 +169,7 @@
 						{
 							"photoSrc": "contact-filled",
 							"text": "关于我们",
-							"toUrl": "/pages/error/index"
+							"toUrl": "/pages/tool/map"
 						},
 						{
 							"photoSrc": "phone-filled",
@@ -173,7 +179,7 @@
 					]
 				};
 				this.lbIcon = data.icons
-			},
+			}
 		}
 	}
 </script>

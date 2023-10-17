@@ -17,12 +17,6 @@
 			</view>
 		</view>
 		<view style="height: 30upx;"></view>
-		<view style="background-color: #fff;">
-			<p style="padding: auto; font-size: 32upx;">
-				<button @tap="CallPhone('15047690961')">三十年老店,联系电话：{{phone}}</button>
-			</p>
-		</view>
-		<view style="height: 30upx;"></view>
 		<uni-section title="商品信息" type="line">
 			<view class="uni-padding-wrap uni-common-mt">
 				<uni-segmented-control :current="current" :values="items" :style-type="styleType"
@@ -217,12 +211,7 @@
 				})
 			},
 			buttonClick(e) {
-				uni.showToast({
-					title: `当前功能无法使用`,
-					icon: 'none'
-				})
-				console.log(e)
-				this.options[2].info++
+				this.CallPhone('15047690961')
 			}
 		}
 	}
