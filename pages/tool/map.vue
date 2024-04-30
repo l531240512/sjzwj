@@ -6,7 +6,7 @@
 				<text class="flex flex-direction">赤峰市敖汉旗宝老线玉卿小学西南侧约100米</text>
 			</view>
 			<view style="margin-left: 50upx; margin-top: 20upx; color:darkgrey">
-				<image src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/h.jpg"></image>
+				<image src="https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/h.jpg"></image>
 			</view>
 		</view>
 		<view style="height: 550upx;"></view>

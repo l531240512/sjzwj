@@ -7,12 +7,12 @@
 					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
 						<swiper-item>
 							<view class="swiper-item">
-								<image src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/banner/b1.jpg"></image>
+								<image src="https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/banner/b1.jpg"></image>
 							</view>
 						</swiper-item>
 						<swiper-item>
 							<view class="swiper-item">
-								<image src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/banner/b2.jpg"></image>
+								<image src="https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/banner/b2.jpg"></image>
 							</view>
 						</swiper-item>
 					</swiper>
@@ -69,7 +69,7 @@
 				</view>
 			</view>
 			<view style="flex-grow: 1;">
-				<image style="height: 160upx; width: 200upx;border-radius:10upx" src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/sjz1.png" data-src="/static/1.svg"></image>
+				<image style="height: 160upx; width: 200upx;border-radius:10upx" src="https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/sjz1.png" data-src="/static/1.svg"></image>
 			</view>
 		</view>
 		<!-- <view style="height: 50upx;"></view> -->
@@ -83,7 +83,7 @@
 				</view>
 			</view>
 			<view style="flex-grow: 1;">
-				<image style="height: 160upx; width: 200upx;border-radius:10upx" src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/sjz1.png" data-src="/static/1.svg"></image>
+				<image style="height: 160upx; width: 200upx;border-radius:10upx" src="https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/sjz1.png" data-src="/static/1.svg"></image>
 			</view>
 		</view>
 		</view>

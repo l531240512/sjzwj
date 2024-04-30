@@ -142,7 +142,7 @@
                 goodsList: [
 					// {
 					// 	id: 1,
-					// 	image: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/1.jpg',
+					// 	image: 'https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/1.jpg',
 					// 	title: '青蛙牌单相井用水泵',
 					// 	price: 1320,
 					// 	stock: 12,
@@ -249,7 +249,7 @@
             // 请求服务器
             var self = this;
 			uni.request({
-			    url: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/1.json', //仅为示例，并非真实接口地址。
+			    url: 'https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/1.json', //仅为示例，并非真实接口地址。
 			    success: (res) => {
 					this.goodsList = res.data
 					uni.setStorageSync('productList',this.goodsList)

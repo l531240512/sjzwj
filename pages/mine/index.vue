@@ -3,7 +3,7 @@
 		<bar :nav="setNav"></bar>
 		<view class="myContent">
 			<view class="header">
-				<image width="100%" height="100%" class="headbgImage" src="https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/banner/b1.jpg"></image>
+				<image width="100%" height="100%" class="headbgImage" src="https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/banner/b1.jpg"></image>
 				<image width="100%" height="100%" round class="myPhoto" src="/static/mine/m.svg">
 				</image>
 				<text class="myInformation">张三</text>
@@ -82,7 +82,7 @@
 		methods: {
 			init() {
 				uni.request({
-				    url: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/m/m.json', //仅为示例，并非真实接口地址。
+				    url: 'https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/m/m.json', //仅为示例，并非真实接口地址。
 				    success: (res) => {
 						this.coupon = res.data.coupon
 						this.integral = res.data.integral

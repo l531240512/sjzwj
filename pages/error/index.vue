@@ -37,7 +37,7 @@
 		height: 100%;
 	}
 	.container {
-		background: url('https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/404/2.jpg') no-repeat center center;
+		background: url('https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/404/2.jpg') no-repeat center center;
 		background-size: 100% 100%;
 		width: 100%;
 		min-height: 100%;

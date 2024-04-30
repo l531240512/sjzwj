@@ -102,7 +102,7 @@
 			let list = uni.getStorageSync('productList')
 			if(!list){
 				uni.request({
-				    url: 'https://os01.oss-cn-hangzhou.aliyuncs.com/oss1/1/1.json', //仅为示例，并非真实接口地址。
+				    url: 'https://sjzwj.obs.cn-north-4.myhuaweicloud.com/oss1/1/1.json', //仅为示例，并非真实接口地址。
 				    success: (res) => {
 						list = res.data
 						uni.setStorageSync('productList',this.goodsList)
